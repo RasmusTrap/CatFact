@@ -26,29 +26,23 @@ public class Services {
 
     }
     public String hentCatData10() throws IOException {
-
         ArrayList<CatFact> facts = new ArrayList();
 
-        URL catUrl = new URL("https://cat-fact.herokuapp.com/facts/random");
-
-        BufferedReader inputFromCatURL = new BufferedReader(new InputStreamReader(catUrl.openStream()));
-
-        CatFact data = new Gson().fromJson((inputFromCatURL), CatFact.class);
-
-        inputFromCatURL.close();
-
-
         for (int counter = 0; counter < 10; counter++) {
+
+
+
+            URL catUrl = new URL("https://cat-fact.herokuapp.com/facts/random");
+
+            BufferedReader inputFromCatURL = new BufferedReader(new InputStreamReader(catUrl.openStream()));
+
+            CatFact data = new Gson().fromJson((inputFromCatURL), CatFact.class);
+
+            inputFromCatURL.close();
+
             facts.add(data);
-            facts.add(data);
-            facts.add(data);
-            facts.add(data);
-            facts.add(data);
-            facts.add(data);
-            facts.add(data);
-            facts.add(data);
-            facts.add(data);
-            facts.add(data);
+
+
         }
         return facts.toString();
 
